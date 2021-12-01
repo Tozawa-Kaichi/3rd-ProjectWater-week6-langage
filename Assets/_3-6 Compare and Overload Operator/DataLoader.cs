@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
-using System.Text;
+using System.Text;//StringBuilder のため
 using System.Linq;
 
 /// <summary>
@@ -55,6 +55,7 @@ public class DataLoader : MonoBehaviour
     /// </summary>
     public void SortGearData()
     {
+        //System.Text を使う
         //Icomparerable のIはインターフェースのI
         StringBuilder sb = new StringBuilder(); // 長い文字列を作る時に使うクラス
         sb.AppendLine("=== ソート前 ===");

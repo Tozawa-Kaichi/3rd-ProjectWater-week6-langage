@@ -6,7 +6,7 @@ using System.Linq;
 /// ID 順でソートする。つまり ID の値が大きい方が「大きいアイテム」とみなされる。
 /// アイテムとアイテムの和 (+) は合成されたアイテムとなり、ランダムなアイテムとなる。
 /// </summary>
-public struct Gear : IComparable
+public struct Gear : IComparable<Gear>
 {
     /// <summary>アイテムの ID</summary>
     public int Id;
@@ -22,13 +22,14 @@ public struct Gear : IComparable
     /// <summary>
     /// コンストラクタ
     /// </summary>
-    public Gear(int id, string name, int price, int attack, int defence)
+    public  Gear(int id, string name, int price, int attack, int defence)////struct//:Icomparable
     {
         this.Id = id;
         this.Name = name;
         this.Price = price;
         this.Attack = attack;
         this.Defence = defence;
+        
     }
 
     /// <summary>
@@ -36,9 +37,8 @@ public struct Gear : IComparable
     /// </summary>
     /// <param name="o">大小関係を比較する相手</param>
     /// <returns>自分の方が小さい時は -1, 自分の方が大きい時は 1, 同値の時は 0</returns>
-    int IComparable.CompareTo(object o)
+    int IComparable<Gear>.CompareTo(Gear other)
     {
-        Gear other = (Gear) o;
 
         if (this.Id < other.Id)
         {
